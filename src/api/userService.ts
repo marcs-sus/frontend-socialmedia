@@ -7,22 +7,20 @@ export const getUsers = async () => {
   return response.data;
 };
 
-export const createUser = async (data: { username: string; email: string }) => {
+export const createUser = async (data: {
+  username: string;
+  email: string;
+  password?: string;
+}) => {
   const response = await api.post("/users", data);
 
   return response.data;
 };
 
-export const updateUser = async (
-  id: number,
-  data: {
-    username: string;
-    email: string;
-  },
-) => {
-  await api.put(`/users/${id}`, data);
+export const updateUser = async (data: { username: string; email: string }) => {
+  await api.put(`/users/`, data);
 };
 
-export const deleteUser = async (id: number) => {
-  await api.delete(`/users/${id}`);
+export const deleteUser = async () => {
+  await api.delete(`/users/`);
 };

@@ -10,7 +10,6 @@ export const getPosts = async () => {
 export const createPost = async (data: {
   title: string;
   content: string;
-  authorId: number;
   communityId: number;
 }) => {
   const response = await api.post("/posts", data);

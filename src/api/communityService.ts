@@ -10,7 +10,6 @@ export const getCommunities = async () => {
 export const createCommunity = async (data: {
   name: string;
   description?: string;
-  ownerId: number;
 }) => {
   const response = await api.post("/communities", data);
 

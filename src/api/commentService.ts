@@ -1,15 +1,14 @@
 import api from "./axios";
 import type { Comment } from "../types/comment";
 
-export const getCommentsByPost = async (data: { postId: number }) => {
-  const response = await api.get<Comment[]>(`/comments?postId=${data.postId}`);
+export const getCommentsByPost = async (postId: number) => {
+  const response = await api.get<Comment[]>(`/comments/post/${postId}`);
 
   return response.data;
 };
 
 export const createComment = async (data: {
   content: string;
-  authorId: number;
   postId: number;
   parentCommentId?: number;
 }) => {
