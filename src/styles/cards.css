@@ -1,0 +1,203 @@
+/* Card Styles */
+
+/* Base card */
+.card {
+  background-color: var(--code-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  border: 1px solid var(--border);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Post card */
+.post-card {
+  border-left: 4px solid var(--accent);
+}
+
+.post-card h3 {
+  color: var(--text-h);
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.post-card p {
+  color: var(--text-h);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.post-card .meta {
+  display: flex;
+  gap: 16px;
+  margin: 12px 0;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.post-card .author {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.post-card .community {
+  color: var(--accent);
+}
+
+.post-card .created-at {
+  margin-left: auto;
+}
+
+/* Vote section */
+.vote-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.vote-section button {
+  background: none;
+  border: 1px solid var(--border);
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.vote-section button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.vote-section button.upvoted {
+  background-color: var(--accent);
+  color: var(--text-h);
+  border-color: var(--accent);
+}
+
+.vote-section button.downvoted {
+  background-color: #e74c3c;
+  color: white;
+  border-color: #e74c3c;
+}
+
+.vote-section span {
+  font-weight: 600;
+  color: var(--text-h);
+  min-width: 24px;
+  text-align: center;
+}
+
+/* Comment card */
+.comment-card {
+  border-left: 4px solid var(--accent-border);
+}
+
+.comment-card p {
+  margin-bottom: 8px;
+  color: var(--text-h);
+}
+
+.comment-card .comment-content {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* User card */
+.user-card {
+  border-left: 4px solid #27ae60;
+}
+
+.user-card h3 {
+  color: #27ae60;
+  margin-bottom: 8px;
+}
+
+.user-card p {
+  color: var(--text-h);
+  margin-bottom: 8px;
+}
+
+/* Community card */
+.community-card {
+  border-left: 4px solid #f39c12;
+}
+
+.community-card h3 {
+  color: #f39c12;
+  margin-bottom: 8px;
+}
+
+.community-card p {
+  color: var(--text-h);
+  margin-bottom: 8px;
+}
+
+/* Card actions */
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.card-actions button {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.card-actions .edit-btn {
+  background-color: var(--accent);
+  color: var(--text-h);
+}
+
+.card-actions .delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.card-actions .join-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.card-actions .leave-btn {
+  background-color: var(--text);
+  color: var(--text-h);
+}
+
+.card-actions .comments-btn {
+  background-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+/* Responsive cards */
+@media (max-width: 768px) {
+  .card {
+    padding: 16px;
+  }
+
+  .vote-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vote-section button {
+    width: auto;
+  }
+
+  .card-actions {
+    flex-wrap: wrap;
+  }
+}

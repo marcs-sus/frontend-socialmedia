@@ -1,0 +1,63 @@
+/* Navbar Styles */
+
+nav {
+  background-color: var(--bg);
+  color: var(--text-h);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--border);
+}
+
+nav a {
+  color: var(--text-h);
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: var(--social-bg);
+  text-decoration: none;
+}
+
+.user-info {
+  margin-left: auto;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.nav-button {
+  background-color: var(--accent);
+  color: var(--text-h);
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .user-info {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin: 8px 0;
+  }
+
+  .nav-button {
+    order: 4;
+    width: 100%;
+  }
+}
