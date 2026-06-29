@@ -1,73 +1,30 @@
-# React + TypeScript + Vite
+# Social Media Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite + Typescript frontend application for a social media platform that allows users to create communities, posts, and comments with voting functionality.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend**: React
+- **Build Tool**: Vite
+- **Language**: TypeScript
+- **Routing**: React Router DOM
+- **HTTP Client**: Axios
+- **Linting**: ESLint
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Authentication**: User registration, login, and logout with JWT token persistence
+- **Communities**: Create, read, update, and delete communities; join/leave communities
+- **Posts**: Create, read, update, and delete posts; vote (up/down) on posts
+- **Comments**: Create, read, and delete comments; reply to comments
+- **User Profiles**: View, update, and delete your user account; manage community memberships
+- **Protected Routes**: Authentication-required routes with automatic redirect
+- **Navigation**: Responsive navbar with easy access to all features
 
-## Expanding the ESLint configuration
+## Web API Consumed
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This frontend consumes the Social Media Web API:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+[https://github.com/marcs-sus/webapi-socialmedia](https://github.com/marcs-sus/webapi-socialmedia)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The API is expected to run at `http://localhost:5066/api` by default.
