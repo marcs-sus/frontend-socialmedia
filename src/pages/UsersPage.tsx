@@ -36,7 +36,6 @@ export default function UsersPage() {
       email,
     });
 
-    // Update the user in the auth context
     login({ ...user, username, email, token: user.token });
   };
 
