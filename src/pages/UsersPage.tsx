@@ -1,17 +1,28 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { updateUser, deleteUser } from "../api/userService";
+import { getUserCommunities } from "../api/communityMemberService";
+
+import type { CommunityMember } from "../types/communityMember";
 
 export default function UsersPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [userCommunities, setUserCommunities] = useState<CommunityMember[]>([]);
 
   const { user, login, logout } = useAuth();
+
+  const loadUserCommunities = async () => {
+    if (!user) return;
+    const data = await getUserCommunities(user.userId);
+    setUserCommunities(data);
+  };
 
   useEffect(() => {
     if (user) {
       setUsername(user.username);
       setEmail(user.email);
+      loadUserCommunities();
     }
   }, [user]);
 
@@ -92,6 +103,26 @@ export default function UsersPage() {
               Account created: {new Date(user.createdAt).toLocaleString()}
             </small>
           </p>
+        )}
+      </div>
+
+      <div className="user-communities-section">
+        <h3>Your Communities</h3>
+        {userCommunities.length > 0 ? (
+          <div className="user-communities-list">
+            <ul>
+              {userCommunities.map((community) => (
+                <li key={community.communityId} className="user-community-item">
+                  <strong>{community.communityName}</strong>
+                  <small className="user-community-joined-date">
+                    Joined: {new Date(community.joinedAt).toLocaleString()}
+                  </small>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p>You haven't joined any communities yet.</p>
         )}
       </div>
     </>
